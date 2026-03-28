@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dark Web Monitor</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            background: #121212;
+            color: white;
+        }
+
+        .card {
+            margin-top: 100px;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        #loader {
+            display: none;
+            margin-top: 10px;
+            color: yellow;
+        }
+
+        .light-mode {
+            background: white !important;
+            color: black !important;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container text-center">
+    <div class="card bg-dark text-white">
+
+        <h2><i class="fa-solid fa-shield-halved"></i> Dark Web Leak Monitor</h2>
+
+        <form action="/check" method="POST" onsubmit="showLoader()">
+            <textarea name="email" class="form-control mt-3" placeholder="Enter emails (comma separated)" required></textarea>
+            <button class="btn btn-danger mt-3">Check Breach</button>
+        </form>
+
+        <div id="loader">🔄 Checking...</div>
+
+        <button onclick="toggleMode()" class="btn btn-secondary mt-3">Toggle Dark Mode</button>
+
+        <br><br>
+        <a href="/history" class="btn btn-info">View History</a>
+
+    </div>
+</div>
+
+<script>
+function showLoader() {
+    document.getElementById("loader").style.display = "block";
+}
+
+function toggleMode() {
+    document.body.classList.toggle("light-mode");
+}
+</script>
+
+</body>
+</html>
